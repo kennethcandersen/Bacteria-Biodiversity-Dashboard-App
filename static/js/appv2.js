@@ -73,7 +73,8 @@ function runEnter() {
         var layout = {
             title: {text: "Top 10 Bacteria Cultures Found",
             font: {size: 20,
-                family: "Arial Black"}
+                family: "Arial Black"},
+            y : .85
               },
             xaxis: { title: "Sample Values", 
                 automargin: true, },
@@ -140,7 +141,8 @@ function runEnter() {
         var layout = {
             title: {text: 'Bacteria Cultures per Sample',
             font: {size: 20,
-                family: "Arial Black"}
+                family: "Arial Black"},
+            y : .85
                 },
             showlegend: false,
             xaxis: { title: "OTI ID" },
