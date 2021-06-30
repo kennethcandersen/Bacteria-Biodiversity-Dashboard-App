@@ -6,9 +6,7 @@ function init() {
         //   // Select form
         var selectTestSubject = d3.select("#selTestSubject");
 
-        // INSERT OPTION INTO PULL DOWN MENU
-
-        // TRY THIS AGAIN WITH A MAP
+        // Insert option into pull down menu
         testSubjects.map(testSubject => {
             selectTestSubject.append("option").text(testSubject);
             });
@@ -22,41 +20,51 @@ selectButton.on('change', runEnter);
 // // FUNCTION FOR EVENT HANDLER
 function runEnter() {
     
-    var testSubjectInput = selectButton.property("value");
-        
+    var testSubjectSelected = parseInt(selectButton.property("value"));
+
     // GET DATA
     d3.json("samples.json").then(data => {
-        var testSubjects = data.names;
-        var metadata = data.metadata;
-        var samples = data.samples;
-        sampleIndex = testSubjects.indexOf(testSubjectInput);
-
-        sampleInfo = metadata[sampleIndex];
-        sampleData = samples[sampleIndex];
+        var testSubjectDemographics = data.metadata.find(testSubject =>
+            testSubject.id === testSubjectSelected);
+       
+    
+        // LOOK UP .FIND FUNCTION FOR JAVASCRIPT
+        var testSubjectData = data.samples.find(testSubject => 
+            testSubject.id == testSubjectSelected
+            );
 
         // DEMOGRAPHIC BOX
         var sampleMetadata = d3.select("#sample-metadata");
+       // SELECT THE 'PS' AND DELETE THEM (.DELETE???)
         sampleMetadata.html("");
 
-        Object.entries(sampleInfo).forEach(([key, value]) => {
+        Object.entries(testSubjectDemographics).map(([key, value]) => {
             sampleMetadata.append("p").text(`${key}: ${value}`);
         })
-        // CULTURES BAR CHART
+        // SET UP ARRAYS TO PLOT
+        
+        var otuIds = testSubjectData.otu_ids;
 
-        otuIds = sampleData.otu_ids.slice(0,10).reverse()
-        otuIdsNames = []
-        otuIds.forEach(name => {
-            otuIdsNames.push(`OTU ${name}`)
-            otuIdsNames.reverse()
         
-        sampleValues = sampleData.sample_values
-        
-        otuLabels = sampleData.otu_labels
-        })
+        var otuIdsNames = [];
+        otuIds.map(name => {
+            otuIdsNames.push(`OTU ${name}`);
+            otuIdsNames.reverse();
+        });
+
+        var sampleValues = testSubjectData.sample_values;
+
+        otuLabels = testSubjectData.otu_labels;
+
+        // BAR CHART
+        var otuIdsNamesSliced = otuIdsNames.slice(0,10).reverse();
+        var sampleValuesSliced = sampleValues.slice(0,10).reverse();
+
         var trace = {
             type: 'bar',
-            y: otuIdsNames.slice(0,10).reverse(),
-            x: sampleValues.slice(0,10).reverse(),
+            y: otuIdsNamesSliced,
+            x: sampleValuesSliced,
+            text: otuLabels,
             orientation : "h"
           };
         
@@ -64,16 +72,19 @@ function runEnter() {
 
         var layout = {
             title: "Top 10 Bacteria Cultures Found",
-            xaxis: { title: "Sample Values" },
-            yaxis: { title: "OTU ID",
-                 }
+            xaxis: { title: "Sample Values", 
+                automargin: true, },
+            yaxis: { title: "OTU ID"},
+            margin: { l: 100, r: 10, t: 100, b: 50 }
+                 
           };
           
         
         Plotly.newPlot('bar', data, layout);
 
         // SCRUB GAUGE
-        scrubsPerWeek = sampleInfo.wfreq
+        scrubsPerWeek = testSubjectDemographics.wfreq
+
         var data = [
             {
                 domain: { x: [0, 1], y: [0, 1] },
@@ -92,19 +103,22 @@ function runEnter() {
                     },
                 
                 value: scrubsPerWeek,
-                title: { text: "Scrubs per Week" },
+                title: { text: "<b>Belly Button Washing Frequency</b><br>Scrubs per Week" },
+                xaxis: { title: "Scrubs per Week"},
                 type: "indicator",
                 mode: "gauge+number"
             }
         ];
-        
-        // var layout = { width: 600, height: 500, margin: { t: 0, b: 0 } };
-        
-        Plotly.newPlot('gauge', data);
+
+        var layout = {margin: { l: 20, r: 20, t: 20, b: 20 } };
+
+        Plotly.newPlot('gauge', data, layout);
+
         
 
 
         //   CULTURES BUBBLE CHART
+        
         var trace1 = {
             x: otuIds,
             y: sampleValues,
@@ -116,25 +130,18 @@ function runEnter() {
             }
           };
           
-          var data = [trace1];
+        var data = [trace1];
           
-          var layout = {
+        var layout = {
             title: 'Bacteria Cultures per Sample',
             showlegend: false,
             xaxis: { title: "OTI ID" },
-            // height: 600,
-            // width: 600
+
           };
           
-          Plotly.newPlot('bubble', data, layout);
-          
-})
-
+        Plotly.newPlot('bubble', data, layout);
+        
+        });
 }
 
 init()
-
-
-
-
-// Use otu_labels for the text values.
