@@ -1,6 +1,6 @@
 # Plotly Data Visualization: The Belly Button Biodiversity App
 
-<a href="https://github.com/kennethcandersen/belly-button-biodiversity-app/blob/main/app-screenshot.png" target="_blank"><img width="900" alt="Final App Screenshot" src="https://github.com/kennethcandersen/belly-button-biodiversity-app/blob/main/app-screenshot.png"></a>
+<a href="https://github.com/kennethcandersen/belly-button-biodiversity-app/blob/main/app-screenshotv2.png" target="_blank"><img width="900" alt="Final App Screenshot" src="https://github.com/kennethcandersen/belly-button-biodiversity-app/blob/main/app-screenshotv2.png"></a>
 
 **EXECUTIVE SUMMARY**
 
