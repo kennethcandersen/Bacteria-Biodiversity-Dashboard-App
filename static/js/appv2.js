@@ -71,7 +71,10 @@ function runEnter() {
         var data = [trace]
 
         var layout = {
-            title: "Top 10 Bacteria Cultures Found",
+            title: {text: "Top 10 Bacteria Cultures Found",
+            font: {size: 20,
+                family: "Arial Black"}
+              },
             xaxis: { title: "Sample Values", 
                 automargin: true, },
             yaxis: { title: "OTU ID"},
@@ -94,17 +97,19 @@ function runEnter() {
                         tick0  : 1,
                         dtick: 1,
                     },
-
                     threshold: {
                         line: { color: "red", width: 4 },
                         thickness: 0.75,
                         value: scrubsPerWeek
                       }
                     },
-                
+                text: ['TEST'],
+                textposition: 'top',
                 value: scrubsPerWeek,
-                title: { text: "<b>Belly Button Washing Frequency</b><br>Scrubs per Week" },
-                xaxis: { title: "Scrubs per Week"},
+                title: { text: "Belly Button Scrubs per Week" ,
+                font: {size: 20,
+                    family: "Arial Black"}
+                  },
                 type: "indicator",
                 mode: "gauge+number"
             }
@@ -133,7 +138,10 @@ function runEnter() {
         var data = [trace1];
           
         var layout = {
-            title: 'Bacteria Cultures per Sample',
+            title: {text: 'Bacteria Cultures per Sample',
+            font: {size: 20,
+                family: "Arial Black"}
+                },
             showlegend: false,
             xaxis: { title: "OTI ID" },
 
