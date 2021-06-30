@@ -4,7 +4,7 @@
 
 **EXECUTIVE SUMMARY**
 
-This app provides a dynamic visualization of belly button bacteria samples. 
+This app provides a dynamic visualization dashboard of bacteria samples. 
 
 See it live [here](https://kennethcandersen.github.io/belly-button-biodiversity-app/index.html): https://kennethcandersen.github.io/belly-button-biodiversity-app/index.html
 
