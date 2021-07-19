@@ -107,7 +107,7 @@ function runEnter() {
                 text: ['TEST'],
                 textposition: 'top',
                 value: scrubsPerWeek,
-                title: { text: "Belly Button Scrubs per Week" ,
+                title: { text: "Bacteria Scrubs per Week" ,
                 font: {size: 20,
                     family: "Arial Black"}
                   },
