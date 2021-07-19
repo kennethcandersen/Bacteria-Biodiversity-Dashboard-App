@@ -6,7 +6,7 @@
 
 This app provides a dynamic visualization dashboard of bacteria samples. 
 
-See it live [here](https://kennethcandersen.github.io/belly-button-biodiversity-app/index.html): https://kennethcandersen.github.io/belly-button-biodiversity-app/index.html
+See it live [here](https://kennethcandersen.github.io/Bacteria-Biodiversity-Dashboard-App/): https://kennethcandersen.github.io/Bacteria-Biodiversity-Dashboard-App/
 
 
 **REPOSITORY NAVIGATION**
