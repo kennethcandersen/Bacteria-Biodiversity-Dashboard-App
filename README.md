@@ -1,6 +1,7 @@
-# Plotly Data Visualization: The Belly Button Biodiversity App
+# The Bacteria Biodiversity Dashboard App 
+## *Data Visualization with Plotly*
 
-<a href="https://github.com/kennethcandersen/belly-button-biodiversity-app/blob/main/app-screenshotv2.png" target="_blank"><img width="900" alt="Final App Screenshot" src="https://github.com/kennethcandersen/belly-button-biodiversity-app/blob/main/app-screenshotv2.png"></a>
+<a href="https://github.com/kennethcandersen/Bacteria-Biodiversity-Dashboard-App/blob/main/app-screenshotv3.png" target="_blank"><img width="900" alt="Final App Screenshot" src="https://github.com/kennethcandersen/Bacteria-Biodiversity-Dashboard-App/blob/main/app-screenshotv3.png"></a>
 
 **EXECUTIVE SUMMARY**
 
