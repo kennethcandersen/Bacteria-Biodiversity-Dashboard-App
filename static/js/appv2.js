@@ -11,6 +11,7 @@ function init() {
             selectTestSubject.append("option").text(testSubject);
             });
         })
+    runEnter()
     }
 // // CREATE EVENT HANDLERS
 
